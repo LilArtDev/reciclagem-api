@@ -28,10 +28,10 @@ jobs:
       run: dotnet publish -c Release -o out
 
     - name: Build Docker image for Staging
-      run: docker build -t suaimagem/reciclagem_api_staging:${{ github.sha }} .
+      run: docker build -t lilartdev/reciclagem_api_staging:${{ github.sha }} .
 
     - name: Push Docker image to Docker Hub (Staging)
-      run: docker push suaimagem/reciclagem_api_staging:${{ github.sha }}
+      run: docker push lilartdev/reciclagem_api_staging:${{ github.sha }}
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
