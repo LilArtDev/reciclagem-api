@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: csharp-app
-        image: suaimagem/csharp-app:latest
+        image: lilartdev/api_reciclagem_staging:latest
         ports:
         - containerPort: 80
         env:

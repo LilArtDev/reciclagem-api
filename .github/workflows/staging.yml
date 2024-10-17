@@ -28,10 +28,10 @@ jobs:
       run: dotnet publish -c Release -o out
 
     - name: Build Docker image
-      run: docker build -t suaimagem/csharp-app:${{ github.sha }} .
+      run: docker build -tlilartdev/api_reciclagem_staging:${{ github.sha }} .
 
     - name: Push Docker image to Docker Hub
-      run: docker push suaimagem/csharp-app:${{ github.sha }}
+      run: docker push lilartdev/api_reciclagem_staging:${{ github.sha }}
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
