@@ -1,0 +1,38 @@
+name: CI-CD Pipeline for Staging
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '8.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Publish
+      run: dotnet publish -c Release -o out
+
+    - name: Build Docker image for Staging
+      run: docker build -t lilartdev/reciclagem_api_staging:${{ github.sha }} .
+
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+
+    - name: Push Docker image to Docker Hub (Staging)
+      run: docker push lilartdev/reciclagem_api_staging:${{ github.sha }}
+
