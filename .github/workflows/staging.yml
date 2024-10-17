@@ -28,7 +28,7 @@ jobs:
       run: dotnet publish -c Release -o out
 
     - name: Build Docker image
-      run: docker build -tlilartdev/api_reciclagem_staging:${{ github.sha }} .
+      run: docker build -t lilartdev/api_reciclagem_staging:${{ github.sha }} .
 
     - name: Push Docker image to Docker Hub
       run: docker push lilartdev/api_reciclagem_staging:${{ github.sha }}
