@@ -27,11 +27,12 @@ jobs:
     - name: Publish
       run: dotnet publish -c Release -o out
 
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+
     - name: Build Docker image for Production
       run: docker build -t lilartdev/reciclagem_api_prod:${{ github.sha }} .
 
     - name: Push Docker image to Docker Hub (Production)
       run: docker push lilartdev/reciclagem_api_prod:${{ github.sha }}
-      env:
-        DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
