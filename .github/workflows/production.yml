@@ -1,9 +1,9 @@
-name: CI-CD Pipeline for Staging
+name: CI-CD Pipeline for Production
 
 on:
   push:
     branches:
-      - staging
+      - main
 
 jobs:
   build:
@@ -27,11 +27,11 @@ jobs:
     - name: Publish
       run: dotnet publish -c Release -o out
 
-    - name: Build Docker image for Staging
-      run: docker build -t suaimagem/reciclagem_api_staging:${{ github.sha }} .
+    - name: Build Docker image for Production
+      run: docker build -t suaimagem/reciclagem_api_prod:${{ github.sha }} .
 
-    - name: Push Docker image to Docker Hub (Staging)
-      run: docker push suaimagem/reciclagem_api_staging:${{ github.sha }}
+    - name: Push Docker image to Docker Hub (Production)
+      run: docker push suaimagem/reciclagem_api_prod:${{ github.sha }}
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
