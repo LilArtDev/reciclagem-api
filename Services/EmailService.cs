@@ -32,6 +32,7 @@ namespace Reciclagem.api.Services
                 mailMessage.To.Add(destinatario);
                 mailMessage.Subject = assunto;
                 mailMessage.Body = mensagem;
+                
 
                 client.Send(mailMessage);
             }
