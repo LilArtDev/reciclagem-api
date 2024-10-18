@@ -27,12 +27,17 @@ jobs:
     - name: Publish
       run: dotnet publish -c Release -o out
 
-    - name: Build Docker image for Staging
-      run: docker build -t lilartdev/reciclagem_api_staging:${{ github.sha }} .
-
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
-    - name: Push Docker image to Docker Hub (Staging)
+    - name: Build Docker image for Staging
+      run: docker build -t lilartdev/reciclagem_api_staging:${{ github.sha }} .
+
+    - name: Tag Docker image with latest
+      run: docker tag lilartdev/reciclagem_api_staging:${{ github.sha }} lilartdev/reciclagem_api_staging:latest
+
+    - name: Push Docker image to Docker Hub (Staging SHA tag)
       run: docker push lilartdev/reciclagem_api_staging:${{ github.sha }}
 
+    - name: Push Docker image to Docker Hub (latest tag)
+      run: docker push lilartdev/reciclagem_api_staging:latest

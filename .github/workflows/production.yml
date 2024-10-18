@@ -33,6 +33,11 @@ jobs:
     - name: Build Docker image for Production
       run: docker build -t lilartdev/reciclagem_api_prod:${{ github.sha }} .
 
-    - name: Push Docker image to Docker Hub (Production)
+    - name: Tag Docker image with latest
+      run: docker tag lilartdev/reciclagem_api_prod:${{ github.sha }} lilartdev/reciclagem_api_prod:latest
+
+    - name: Push Docker image to Docker Hub (Production SHA tag)
       run: docker push lilartdev/reciclagem_api_prod:${{ github.sha }}
 
+    - name: Push Docker image to Docker Hub (latest tag)
+      run: docker push lilartdev/reciclagem_api_prod:latest
