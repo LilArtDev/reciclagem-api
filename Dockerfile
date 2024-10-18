@@ -12,4 +12,4 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 
 EXPOSE 80
-ENTRYPOINT ["dotnet", "Reciclagem.dll"]
+ENTRYPOINT ["dotnet", "Reciclagem.api.dll"]
