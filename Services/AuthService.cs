@@ -13,6 +13,7 @@ namespace Reciclagem.api.Services
             new UserModel { UserId = 1, Username = "diretor", Senha = "123", Role = "diretor" },
         };
 
+
         public UserModel Authenticate(string username, string senha)
         {
             return _user.FirstOrDefault(u => u.Username == username && u.Senha == senha);
