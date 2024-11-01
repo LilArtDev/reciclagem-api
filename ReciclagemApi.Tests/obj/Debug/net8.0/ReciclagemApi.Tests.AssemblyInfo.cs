@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReciclagemApi.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14d103bc955a1b53644923b08c04d55cc433d068")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25cd518374fb3ebd2c32afa49cb2d93b8ae5ef71")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReciclagemApi.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReciclagemApi.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

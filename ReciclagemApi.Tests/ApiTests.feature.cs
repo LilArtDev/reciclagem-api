@@ -95,8 +95,8 @@ namespace ReciclagemApi.Tests
                             "Password",
                             "Role"});
                 table1.AddRow(new string[] {
-                            "test_user",
-                            "test_password",
+                            "authTest",
+                            "testing22",
                             "User"});
 #line 4
     testRunner.Given("I have the following user details", ((string)(null)), table1, "Given ");
@@ -132,8 +132,8 @@ namespace ReciclagemApi.Tests
                             "Username",
                             "Password"});
                 table2.AddRow(new string[] {
-                            "test_user",
-                            "test_password"});
+                            "authTest",
+                            "testing22"});
 #line 11
     testRunner.Given("I have valid user credentials", ((string)(null)), table2, "Given ");
 #line hidden
@@ -159,7 +159,7 @@ namespace ReciclagemApi.Tests
                     "RequireAuth"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a Recycling Report", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 19
+#line 43
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -169,7 +169,7 @@ namespace ReciclagemApi.Tests
             else
             {
                 this.ScenarioStart();
-#line 20
+#line 44
     testRunner.Given("I have a valid JWT token", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -178,117 +178,14 @@ namespace ReciclagemApi.Tests
                 table3.AddRow(new string[] {
                             "Plastic",
                             "5"});
-#line 21
+#line 45
     testRunner.And("I have the following recycling report", ((string)(null)), table3, "And ");
 #line hidden
-#line 24
+#line 48
     testRunner.When("I submit a recycling report", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 25
-    testRunner.Then("the response status should be 201", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create a New Material as Admin")]
-        [NUnit.Framework.CategoryAttribute("RequireAuth")]
-        public void CreateANewMaterialAsAdmin()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "RequireAuth"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a New Material as Admin", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 28
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 29
-  testRunner.Given("the admin user is set up with username \"test_admin\" and password \"test_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Username",
-                            "Password"});
-                table4.AddRow(new string[] {
-                            "test_admin",
-                            "test_password"});
-#line 30
-  testRunner.Given("I have Admin user credentials", ((string)(null)), table4, "Given ");
-#line hidden
-#line 33
-  testRunner.When("I login with these credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                            "MaterialName",
-                            "Description"});
-                table5.AddRow(new string[] {
-                            "Steel",
-                            "Recyclable"});
-#line 34
-  testRunner.And("I have the following material details", ((string)(null)), table5, "And ");
-#line hidden
-#line 37
-  testRunner.And("I submit a material creation request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 38
-  testRunner.Then("the response status should be 201", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Unauthorized Material Creation by Non-Admin")]
-        [NUnit.Framework.CategoryAttribute("RequireAuth")]
-        public void UnauthorizedMaterialCreationByNon_Admin()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "RequireAuth"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Unauthorized Material Creation by Non-Admin", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 41
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Username",
-                            "Password"});
-                table6.AddRow(new string[] {
-                            "test_user",
-                            "test_password"});
-#line 42
-    testRunner.Given("I have valid user credentials", ((string)(null)), table6, "Given ");
-#line hidden
-#line 45
-    testRunner.When("I login with these credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                            "MaterialName",
-                            "Description"});
-                table7.AddRow(new string[] {
-                            "Steel",
-                            "Recyclable"});
-#line 46
-    testRunner.And("I have the following material details", ((string)(null)), table7, "And ");
-#line hidden
 #line 49
-    testRunner.And("I submit a material creation request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 50
-    testRunner.Then("the response status should be 403", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the response status should be 201", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
